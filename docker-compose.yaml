@@ -1,0 +1,30 @@
+services:
+  db:
+    container_name: db_postgresql
+    image: postgres:13
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - 6379:6379
+
+  web:
+    container_name: warpoint_app
+    restart: always
+    build: .
+    depends_on:
+      - db
+      - redis
+    ports:
+      - 8000:8000
+    command: bash -c "uvicorn app:app --host 0.0.0.0 --reload"
+
