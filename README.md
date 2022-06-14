@@ -23,4 +23,4 @@
 
 ```curl -X 'GET' 'http://0.0.0.0:8000/' -H 'accept: text/html' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiZXhwIjoxNjU1MjM3MDI1fQ.W5ARON4Bo8QeTU1xKmdBZZ3hLGyFHlgpmIzXkEIJ_J0'```
 
-В ранном сервисе в качестве хранилища используется Redis. Время жизни токена по умолчанию 2 минуты, чтобы изменить это оюратитесь к `ACCESS_TOKEN_EXPIRE_MINUTES`
+В качестве хранилища используется Redis. Время жизни токена по умолчанию 2 минуты, чтобы изменить это обратитесь к `ACCESS_TOKEN_EXPIRE_MINUTES`
